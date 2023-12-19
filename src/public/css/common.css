@@ -1,0 +1,29 @@
+.header {
+    background: #fff;
+    border-bottom:solid 1px #FDF5E6;
+}
+
+.header__inner {
+    margin: 0 auto;
+    max-width: 1230px;
+}
+
+.header-utility {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.header__logo {
+    color: #D2B48C;
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    font-weight: lighter;
+    padding-left:100px;
+}
+
+.header-nav {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}

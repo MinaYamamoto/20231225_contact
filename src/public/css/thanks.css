@@ -1,0 +1,44 @@
+body {
+    height: 100vh;
+}
+
+.thanks__content{
+    margin-top: 0;
+    position: relative;
+}
+
+.thanks__background{
+    color:#FFFAF0;
+    font-size: 230px;
+    width: 100%;
+}
+
+.thanks__background p{
+    margin-top: 100px;
+}
+
+.thanks__heading{
+    position: absolute;
+    top:50%;
+    left:30%;
+}
+
+.thanks__heading h2{
+    color:#D2B48C;
+}
+
+.button {
+    position: absolute;
+    top:80%;
+    left:43%;
+}
+
+.home__button{
+    color:#fff;
+    width: 80px;
+    height: 30px;
+    border:solid 1px #D6C6AF;
+    background-color: #D2B48C;
+    font-family: 'Lora', serif;
+    cursor: pointer;
+}

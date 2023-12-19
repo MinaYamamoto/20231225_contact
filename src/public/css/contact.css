@@ -1,0 +1,145 @@
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-form__heading h2 {
+    color: #D2B48C;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: lighter;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form__label--item {
+    color:#D2B48C;
+}
+
+.form__label--required {
+    margin-left: 5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    color: #ff0000;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--text input,
+.form__input--textarea textarea
+{
+    padding: 10px;
+    width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    background-color: #f0f2ee;
+    color:#D2B48C;
+}
+
+.form__input--radio {
+    margin-right: 400px;
+    color: #D2B48C;
+}
+
+.form__input--text input {
+    height: 40px;
+}
+
+.form__input--tell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 245px;
+}
+
+.form__input--tell p {
+    padding:0 10px;
+}
+
+.form__input--tell input {
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    background-color: #f0f2ee;
+    color:#D2B48C;
+}
+
+.form__select-box {
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    position: relative;
+    margin-right: 410px;
+}
+
+.form__select-box::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #D2B48C transparent transparent transparent;
+    position: absolute;
+    top: 50%;
+    left: 270px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.select-box__item::-ms-expand{
+    display: none;
+}
+
+.form__select-box select {
+    height: 40px;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f0f2ee;
+    color:#D2B48C;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form__input--textarea textarea {
+    height: 180px;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 20%;
+    height: 50px;
+    border: none;
+    background-color: #D2B48C;
+    color:#fff;
+    cursor: pointer;
+}

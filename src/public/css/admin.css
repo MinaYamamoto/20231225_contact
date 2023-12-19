@@ -1,0 +1,24 @@
+.logout__button{
+    color:#D6C6AF;
+    width: 80px;
+    height: 30px;
+    border:solid 1px #D6C6AF;
+    background-color: #F5F5F5;
+    font-family: 'Lora', serif;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.admin__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.admin-heading {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #D2B48C;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+}
