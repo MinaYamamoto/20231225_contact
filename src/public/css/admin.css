@@ -146,15 +146,20 @@ svg.w-5.h-5 {
 
 .modal__form {
     position: absolute;
-    top: 70%;
+    top: 90%;
     left: 50%;
     transform:translate(-50%,-50%);
     width: 70%;
-    max-width: 500px;
+    max-width: 600px;
     padding: 10px 30px;
     background-color: #fff;
+    box-shadow: 3px 3px 3px 3px #D6C6AF;
 }
 
+.modal__close {
+    padding-left: 500px;
+
+}
 .modal__close--submit {
     border-radius: 50%;
     background-color: #D6C6AF;
@@ -170,11 +175,25 @@ svg.w-5.h-5 {
 .form__group {
     display: flex;
     justify-content: space-between;
+    text-align: center;
     margin-bottom: 15px;
+}
+
+.form__group-title {
+    padding-left: 40px;
 }
 
 .form__label--item {
     color:#D2B48C;
+    font-size: 16px;
+}
+
+.form__group-content {
+    padding-right: 100px;
+}
+
+.form__input--text{
+    font-size: 30px;
 }
 
 .form__input--text input {
@@ -184,7 +203,6 @@ svg.w-5.h-5 {
     border: none;
     color:#D2B48C;
     font-weight: lighter;
-    text-align: center;
 }
 
 .delete__button-submit{

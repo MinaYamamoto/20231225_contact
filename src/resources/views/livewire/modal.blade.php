@@ -17,7 +17,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="name" value="name" readonly/>
+                        <input type="text" name="name" value="{{ $contact['last_name'].'  ' .$contact['first_name']}}" readonly />
                     </div>
                 </div>
             </div>
@@ -27,7 +27,14 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="gender" value="gender" readonly/>
+                        @if($contact['gender'] == '1')
+                        <input class="confirm-table__text" name="gender" value="男性" readonly />
+                        @elseif($contact['gender'] == '2')
+                        <input class="confirm-table__text" name="gender" value="女性" readonly />
+                        @else
+                        <input class="confirm-table__text" name="gender" value="その他" readonly />
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -37,7 +44,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="email" value="email" readonly/>
+                        <input type="text" name="email" value="{{$contact['email']}}" readonly/>
                     </div>
                 </div>
             </div>
@@ -47,7 +54,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="tell" value="tell" readonly/>
+                        <input type="text" name="tell" value="{{$contact['tell']}}" readonly/>
                     </div>
                 </div>
             </div>
@@ -57,7 +64,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="address" value="address" readonly/>
+                        <input type="text" name="address" value="{{$contact['address']}}" readonly/>
                     </div>
                 </div>
             </div>
@@ -67,7 +74,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="building" value="building" readonly/>
+                        <input type="text" name="building" value="{{$contact['building']}}" readonly/>
                     </div>
                 </div>
             </div>
@@ -77,7 +84,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="category" value="category" readonly/>
+                        <input type="text" name="category" value="{{$category['content']}}" readonly/>
                     </div>
                 </div>
             </div>
@@ -87,12 +94,12 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="detail" value="detail" readonly/>
+                        <input type="text" name="detail" value="{{$contact['detail']}}" readonly/>
                     </div>
                 </div>
             </div>
             <div class="delete__button">
-                <button type="submit" class="delete__button-submit">削除</button>
+                <button type="submit" class="delete__button-submit" wire:click="delete({{ $contact->id }})">削除</button>
             </div>
         </form>
     </div>

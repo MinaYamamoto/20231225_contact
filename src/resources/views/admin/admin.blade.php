@@ -30,10 +30,10 @@
             <select onchange="submit(this.form)" class="search-form__item-category" name="category_id">
                 <option value="">お問い合わせの種類</option>
                 @foreach($categories as $category)
-                <option value="{{ $category['id']}}">{{ $category['content'] }}</option>
+                <option value="{{ $category['id']}}" @if(old('category_id') == "$category->id") selected @endif {{ $category['content'] }}</option>
                 @endforeach
             </select>
-            <input onchange="submit(this.form)" name="date" type="date" class="search-form__item-day" value="@if (isset( $params['date'] )) {{$params['date']}} @endif"/>
+            <input onchange="submit(this.form)" name="date" type="date" class="search-form__item-day" value="日付を入力してください"/>
         </div>
         <div class="flex__contents">
             <div class="export__button">
@@ -69,7 +69,7 @@
                     @endif
                     @endforeach
                     <td>
-                    @livewire('modal')
+                    @livewire('modal', ['contact'=>$contact , 'category'=>$category])
                     </td>
                 </tr>
                 @endforeach
