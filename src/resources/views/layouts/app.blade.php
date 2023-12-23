@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     @yield('css')
+    @livewireStyles
 </head>
 <body>
     <header class="header">
@@ -26,5 +27,6 @@
     <main>
         @yield('content')
     </main>
+    @livewireScripts
 </body>
 </html>

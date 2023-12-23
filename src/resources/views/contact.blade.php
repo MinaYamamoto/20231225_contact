@@ -18,18 +18,18 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="text" name="first_name" placeholder="例）山田" value="{{ old ('first_name') }}" />
+                    <input type="text" name="last_name" placeholder="例）山田" value="{{ old ('last_name') }}" />
                 </div>
                 <div class="form__error">
-                    @error('first_name')
+                    @error('last_name')
                     {{ $message }}
                     @enderror
                 </div>
                 <div class="form__input--text">
-                    <input type="text" name="last_name" placeholder="例）太郎" value="{{ old ('last_name') }}" />
+                    <input type="text" name="first_name" placeholder="例）太郎" value="{{ old ('first_name') }}" />
                 </div>
                 <div class="form__error">
-                    @error('last_name')
+                    @error('first_name')
                     {{ $message }}
                     @enderror
                 </div>
@@ -42,12 +42,12 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--radio">
-                    <input type="radio" name="gender" value="0" checked/>
-                    <label for="0">男性</label>
-                    <input type="radio" name="gender" value="1" />
-                    <label for="1">女性</label>
-                    <input type="radio" name="gender" value="2" />
-                    <label for="2">その他</label>
+                    <input type="radio" name="gender" value="1" checked @if( old('gender')=="1") checked @endif/>
+                    <label for="1">男性</label>
+                    <input type="radio" name="gender" value="2" @if( old('gender')=="2") checked @endif/>
+                    <label for="2">女性</label>
+                    <input type="radio" name="gender" value="3" @if( old('gender')=="3") checked @endif/>
+                    <label for="3">その他</label>
                 </div>
                 <div class="form__error">
                     @error('gender')
@@ -134,7 +134,7 @@
                     <select name="category_id">
                         <option value="">選択してください</option>
                         @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->content}}</option>
+                        <option value="{{$category->id}}"  @if(old('category_id') == "$category->id") selected @endif>{{$category->content}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -152,7 +152,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--textarea">
-                    <textarea name="detail" placeholder="お問い合わせ内容をご記載ください" value="{{ old ('detail') }}" ></textarea>
+                    <textarea name="detail" placeholder="お問い合わせ内容をご記載ください" >{{ old ('detail') }}</textarea>
                 </div>
                 <div class="form__error">
                     @error('detail')

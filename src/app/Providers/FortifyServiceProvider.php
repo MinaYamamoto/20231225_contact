@@ -32,12 +32,12 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView(function()
         {
-            return view('user.register');
+            return view('admin.register');
         });
 
         Fortify::loginView(function()
         {
-            return view('user.login');
+            return view('admin.login');
         });
 
         RateLimiter::for('login', function (Request $request)

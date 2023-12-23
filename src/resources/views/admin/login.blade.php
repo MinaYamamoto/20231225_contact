@@ -1,37 +1,20 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/register.css')}}">
+<link rel="stylesheet" href="{{ asset('css/login.css')}}">
 @endsection
 
 @section('header')
-<form class="login">
-    <button class="login__button" type="submit" href="/login">login</button>
-</form>
+<button class="register__button" type="submit" onclick="location.href='/register'">register</button>
 @endsection
 
 @section('content')
-<div class="register__content">
-    <div class="register-heading">
-        Register
+<div class="login__content">
+    <div class="login-heading">
+        login
     </div>
-    <form class="register__form" action="/register" method="post">
+    <form class="login__form" action="/login" method="post">
         @csrf
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">お名前</span>
-            </div>
-            <div class="form__group--content">
-                <div class="form__input--text">
-                    <input type="text" name="name" value="{{ old('name') }}" placeholder="例：山田　太郎"/>
-                </div>
-                <div class="form__error">
-                    @error('name')
-                    {{ $message }}
-                    @enderror
-                </div>
-            </div>
-        </div>
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">メールアドレス</span>
@@ -53,7 +36,7 @@
             </div>
             <div class="form__group--content">
                 <div class="form__input--text">
-                    <input type="password" name="password" value="{{ old('password') }}" placeholder="例：coachtech1106"/>
+                    <input type="password" name="password" value="{{ old('password') }}" placeholder="例:coachtech1106"/>
                 </div>
                 <div class="form__error">
                     @error('password')
@@ -63,7 +46,7 @@
             </div>
         </div>
         <div class="form__button">
-            <button class="form__button-submit" type="submit">登録</button>
+            <button class="form__button-submit" type="submit">ログイン</button>
         </div>
     </form>
 </div>
