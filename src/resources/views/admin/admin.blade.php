@@ -35,49 +35,50 @@
             </select>
             <input onchange="submit(this.form)" name="date" type="date" class="search-form__item-day" value="日付を入力してください"/>
         </div>
-        <div class="flex__contents">
-            <div class="export__button">
-                <button  class="export__button-submit">エクスポート</button>
-            </div>
-            <div class="form__paginate">
-                {{ $paginate->links() }}
-            </div>
+    <div class="flex__contents">
+        <div class="export__button">
+            <!-- <button  class="export__button-submit">エクスポート</button> -->
+            <a href="{{ route('admin.exportcsv') }}" class="export__button-submit">エクスポート</a>
         </div>
-        <div class="form__contact">
-            <table>
-                <tr>
-                    <th>お名前</th>
-                    <th>性別</th>
-                    <th>メールアドレス</th>
-                    <th>お問い合わせの種類</th>
-                    <th></th>
-                </tr>
-                <tr>
-                @foreach($contacts as $contact)
-                    <td>{{$contact->last_name}} {{$contact->first_name}}</td>
-                    @if($contact['gender'] == '1')
-                    <td>男性</td>
-                    @elseif($contact['gender'] == '2')
-                    <td>女性</td>
-                    @else
-                    <td>その他</td>
-                    @endif
-                    <td>{{$contact->email}}</td>
-                    @foreach($categories as $category)
-                    @if($category->id == $contact['category_id'])
-                    <td>{{ $category->content }}</td>
-                    @endif
-                    @endforeach
-                    <td>
-                    @livewire('modal', ['contact'=>$contact , 'category'=>$category])
-                    </td>
-                </tr>
+        <div class="form__paginate">
+            {{ $paginate->links() }}
+        </div>
+    </div>
+    <div class="form__contact">
+        <table>
+            <tr>
+                <th>お名前</th>
+                <th>性別</th>
+                <th>メールアドレス</th>
+                <th>お問い合わせの種類</th>
+                <th></th>
+            </tr>
+            <tr>
+            @foreach($contacts as $contact)
+                <td>{{$contact->last_name}} {{$contact->first_name}}</td>
+                @if($contact['gender'] == '1')
+                <td>男性</td>
+                @elseif($contact['gender'] == '2')
+                <td>女性</td>
+                @else
+                <td>その他</td>
+                @endif
+                <td>{{$contact->email}}</td>
+                @foreach($categories as $category)
+                @if($category->id == $contact['category_id'])
+                <td>{{ $category->content }}</td>
+                @endif
                 @endforeach
-            </table>
-        </div>
-        <div class="reset__button">
-            <input class="reset__button-submit" type="submit" onclick="location.href='$reset'" value="リセット" />
-        </div>
+                <td>
+                @livewire('modal', ['contact'=>$contact , 'category'=>$category])
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+    <div class="reset__button">
+        <input class="reset__button-submit" type="submit" onclick="location.href='$reset'" value="リセット" />
+    </div>
     </form>
 </div>
 @endsection
