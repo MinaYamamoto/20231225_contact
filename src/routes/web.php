@@ -19,9 +19,10 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
 
-// Route::middleware('auth')->group(function()
-// {
+Route::middleware('auth')->group(function()
+{
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin/search', [AdminController::class, 'search']);
-    Route::get('/admin/exportcsv/{keyword?}/{category_id?}/{gender?}{date?}', 'App\Http\Controllers\AdminController@exportCsv')->name('admin.exportcsv');
-// });
+    // 任意パラメータ複数指定・・・？？
+    Route::get('/admin/exportcsv/{category_id?}/{gender?}/{date?}/{keyword?}', 'App\Http\Controllers\AdminController@exportCsv')->name('admin.exportcsv');
+});

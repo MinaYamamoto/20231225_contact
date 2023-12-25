@@ -8,36 +8,42 @@ use App\Models\Category;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
-        $contacts = Contact::with('category')->get();
-        $paginate = Contact::Paginate(10);
+        $contacts = Contact::with('category')->paginate(10);
 
-        return view('admin.admin', compact('categories', 'contacts' ,'paginate'));
+        $keyword = $request->keyword;
+        $category_id = $request->category_id;
+        $gender = $request->gender;
+        $date = $request->date;
+
+        return view ('admin.admin', compact('categories', 'contacts', 'keyword', 'category_id', 'gender', 'date'));
     }
 
     public function search(Request $request)
     {
         $categories = Category::all();
-        $contacts = Contact::with('category')->CategorySearch($request->category_id)->GenderSearch($request->gender)->DateSearch($request->date)->KeywordSearch($request->keyword)->get();
-
-        $paginate = Contact::Paginate(10);
-
+        $contacts = Contact::with('category')->CategorySearch($request->category_id)->GenderSearch($request->gender)->DateSearch($request->date)->KeywordSearch($request->keyword)->paginate(10);
         $reset = strtok($request, '?');
-        return view('admin.admin', compact('categories', 'contacts', 'paginate', 'reset'));
+
+        $keyword = $request->keyword;
+        $category_id = $request->category_id;
+        $gender = $request->gender;
+        $date = $request->date;
+
+        return view('admin.admin', compact('categories', 'contacts', 'reset', 'keyword', 'category_id', 'gender', 'date'));
     }
 
-    public function exportCsv(Request $request)
+    public function exportCsv( ?int $category_id = null, ?int $gender = null, ?string $date = null ,?string $keyword = null)
     {
-        //全件
-        $contacts = Contact::with('category')->get();
-        //検索条件が設定された場合(未実装・・・)
-        // $keyword = $request->keyword;
-        // $category_id = $request->category_id;
-        // $gender = $request->gender;
-        // $date = $request->date;
-        // $contacts = Contact::with('category')->CategorySearch($category_id->category_id)->GenderSearch($gender->gender)->DateSearch($contacts->date)->KeywordSearch($request->keyword)->get();
+        if ($category_id||$gender||$date||$keyword){
+            //検索条件あり。途中
+            $contacts = Contact::with('category')->CategorySearch($category_id)->GenderSearch($gender)->DateSearch($date)->KeywordSearch($keyword)->get();
+        } else {
+            //全件
+            $contacts = Contact::with('category')->get();
+        }
 
         $headers = [
             'Content-type' => 'text/csv',
@@ -97,7 +103,7 @@ class AdminController extends Controller
                 mb_convert_variables('SJIS', 'UTF-8', $data);
                 fputcsv($handle, $data);
             }
-            dd($data);
+
             fclose($handle);
         };
         return response()->streamDownload($callback, $fileName, $headers);

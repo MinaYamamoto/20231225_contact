@@ -1,6 +1,7 @@
 .header {
     background: #fff;
     border-bottom:solid 1px #FDF5E6;
+    max-height: 90px;
 }
 
 .header__inner {
@@ -10,7 +11,7 @@
 
 .header-utility {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
@@ -19,11 +20,12 @@
     font-family: 'Lora', serif;
     font-size: 32px;
     font-weight: lighter;
-    padding-left:100px;
+    padding-left: 40%;
 }
 
 .header-nav {
     display:flex;
     align-items: center;
     justify-content: space-between;
+    padding-left:250px;
 }
