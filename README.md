@@ -7,7 +7,7 @@
 
 Dockerビルド
 
-1.git cloneリンクを後で貼る
+1.git clone git@github.com:MinaYamamoto/20231225_contact.git
 
 2.docker-compose up -d --build
 
@@ -54,5 +54,7 @@ Composser:2.6.6
 <img width="623" alt="image" src="https://github.com/MinaYamamoto/20231225_contact/assets/150407362/b470fb7d-0834-49bf-9bb1-05159a4ec158">
 
 ##URL
-開発環境：
-phpMyAdmin
+
+開発環境：http://localhost/
+
+phpMyAdmin：http://localhost:8080/
